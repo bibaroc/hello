@@ -1,4 +1,2 @@
 # hellosvc
 
-example readme.md
-
