@@ -100,7 +100,7 @@ func makeHelloSVCMetrics() helloSVCMetrics {
 			Name:      "request_size",
 			Help:      "Size of requests recieved",
 		}, fieldKeys),
-		requestLatency: kitprometheus.NewSummaryFrom(prometheus.SummaryOpts{
+		requestLatency: kitprometheus.NewHistogramFrom(prometheus.HistogramOpts{
 			Namespace: "dyslav",
 			Subsystem: "hello_svc",
 			Name:      "request_latency_microseconds",
