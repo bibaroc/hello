@@ -117,7 +117,7 @@ func sayHelloWrp(m helloSVCMetrics, l log.Logger) func(http.ResponseWriter, *htt
 			lvs := []string{"method", "sayHello", "error", fmt.Sprint(err != nil)}
 			m.requestCount.With(lvs...).Add(1)
 			m.requestSize.With(lvs...).Add(float64(r.ContentLength))
-			m.requestLatency.With(lvs...).Observe(time.Since(begin).Seconds())
+			m.requestLatency.With(lvs...).Observe(float64(time.Since(begin).Microseconds()))
 		}(time.Now())
 
 		defer func(begin time.Time) {
